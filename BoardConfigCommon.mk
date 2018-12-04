@@ -58,7 +58,6 @@ TARGET_KERNEL_SOURCE := kernel/motorola/msm8916
 KERNEL_TOOLCHAIN := $(ANDROID_BUILD_TOP)/prebuilts/gcc/$(HOST_OS)-x86/arm/arm-eabi-4.8/bin
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-eabi-
 TARGET_EXFAT_DRIVER := exfat
-
 TARGET_USES_MKE2FS := true
 
 # Audio
@@ -185,8 +184,13 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 
-# Optimize
-PRODUCT_SYSTEM_SERVER_COMPILER_FILTER := speed-profile
-PRODUCT_ALWAYS_PREOPT_EXTRACTED_APK := true
-PRODUCT_USE_PROFILE_FOR_BOOT_IMAGE := true
-PRODUCT_DEX_PREOPT_BOOT_IMAGE_PROFILE_LOCATION := frameworks/base/config/boot-image-profile.txt
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+	ifneq ($(TARGET_BUILD_VARIANT),eng)
+		WITH_DEXPREOPT := true
+		WITH_DEXPREOPT_DEBUG_INFO := false
+		USE_DEX2OAT_DEBUG := false
+		DONT_DEXPREOPT_PREBUILTS := true
+		WITH_DEXPREOPT_PIC := true
+	endif
+endif
