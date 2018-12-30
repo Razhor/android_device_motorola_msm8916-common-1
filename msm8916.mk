@@ -98,7 +98,6 @@ PRODUCT_PACKAGES += \
     libc_util \
     libshims_camera \
     libshims_sensorlistener \
-    Camera2 \
     Snap
 
 # Camera properties
