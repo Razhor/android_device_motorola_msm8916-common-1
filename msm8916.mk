@@ -91,13 +91,11 @@ PRODUCT_PACKAGES += \
 # Camera
 PRODUCT_PACKAGES += \
     android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
+    camera.device@1.0-impl \
     camera.msm8916 \
-    libbson \
-    libshim_atomic \
     libc_util \
+    libboringssl-compat \
     libshims_camera \
-    libshims_sensorlistener \
     Snap
 
 # Camera properties

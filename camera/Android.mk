@@ -3,11 +3,9 @@ include $(CLEAR_VARS)
 
 LOCAL_C_INCLUDES := \
     framework/native/include \
-    frameworks/native/include/media/openmax \
     system/media/camera/include
 
-LOCAL_SRC_FILES := \
-    CameraWrapper.cpp
+LOCAL_SRC_FILES := CameraWrapper.cpp
 
 LOCAL_SHARED_LIBRARIES := \
     libhardware \
@@ -17,13 +15,13 @@ LOCAL_SHARED_LIBRARIES := \
     libhidltransport \
     libsensor \
     libutils \
-    libcutils \
     android.hidl.token@1.0-utils
 
 LOCAL_STATIC_LIBRARIES := \
     libarect
 
-LOCAL_MODULE_PATH := $(TARGET_OUT_SHARED_LIBRARIES)/hw
+LOCAL_MODULE_RELATIVE_PATH := hw
+LOCAL_VENDOR_MODULE := true
 LOCAL_MODULE := camera.$(TARGET_BOARD_PLATFORM)
 LOCAL_MODULE_TAGS := optional
 
