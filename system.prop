@@ -110,6 +110,9 @@ persist.radio.add_power_save=1
 ro.use_data_netmgrd=true
 persist.data.netmgrd.qos.enable=true
 
+# Play store
+ro.com.google.clientidbase.gmm=android-motorola
+
 # USB debugging at boot
 persist.sys.usb.config=mtp,adb 
 ro.adb.secure=0 
