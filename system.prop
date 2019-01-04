@@ -34,7 +34,10 @@ ro.bluetooth.sap=true
 
 # Camera
 camera2.portability.force_api=1
+<<<<<<< HEAD
 ro.config.hw_camera_hdr=true
+=======
+>>>>>>> parent of b9bb1ed... msm8916-common: rework camera
 
 # Display
 ro.opengles.version=196608
